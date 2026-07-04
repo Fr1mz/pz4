@@ -1,0 +1,282 @@
+<mxfile host="Electron" agent="ChatGPT">
+  <diagram id="2974c3e567e4" name="GraphRAG Titanic SQL Agent">
+    <mxGraphModel dx="1576" dy="825" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=24;fontStyle=1;align=center;verticalAlign=middle;whiteSpace=wrap;" value="GraphRAG SQL-агент для анализа пассажирских данных Titanic" vertex="1">
+          <mxGeometry height="45" width="1250" x="180" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sec_sources" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F7FA;strokeColor=#6C8EBF;strokeWidth=2;fontStyle=1;fontSize=15;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;" value="1. Источники данных" vertex="1">
+          <mxGeometry height="430" width="250" x="30" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="sec_kg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F7FA;strokeColor=#6C8EBF;strokeWidth=2;fontStyle=1;fontSize=15;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;" value="2. Граф знаний: доменная онтология + структура БД" vertex="1">
+          <mxGeometry height="450" width="560" x="310" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="sec_analytics" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F7FA;strokeColor=#6C8EBF;strokeWidth=2;fontStyle=1;fontSize=15;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;" value="3. Слой аналитики графа" vertex="1">
+          <mxGeometry height="265" width="300" x="900" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="sec_agents" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F7FA;strokeColor=#6C8EBF;strokeWidth=2;fontStyle=1;fontSize=15;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;" value="4. Граф агентов" vertex="1">
+          <mxGeometry height="630" width="430" x="1230" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="sec_e2e" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F7FA;strokeColor=#6C8EBF;strokeWidth=2;fontStyle=1;fontSize=15;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;" value="5. Пример запроса end-to-end" vertex="1">
+          <mxGeometry height="220" width="1170" x="30" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="sec_legend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F7FA;strokeColor=#6C8EBF;strokeWidth=2;fontStyle=1;fontSize=15;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;" value="Легенда" vertex="1">
+          <mxGeometry height="120" width="1630" x="30" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="src_csv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#E1F5FE;strokeColor=#0288D1;fontSize=12;" value="Titanic dataset&lt;br&gt;&lt;b&gt;passengers.csv&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="200" x="55" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="src_schema" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#E1F5FE;strokeColor=#0288D1;fontSize=12;" value="SQL-схема&lt;br&gt;&lt;b&gt;таблицы, поля, типы&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="200" x="55" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="src_comments" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#E1F5FE;strokeColor=#0288D1;fontSize=12;" value="Описание полей&lt;br&gt;&lt;b&gt;survived, pclass, fare...&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="200" x="55" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="src_dict" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#E1F5FE;strokeColor=#0288D1;fontSize=12;" value="Бизнес-словарь&lt;br&gt;&lt;b&gt;выживаемость, класс, порт&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="200" x="55" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="src_examples" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#E1F5FE;strokeColor=#0288D1;fontSize=12;" value="Примеры SQL&lt;br&gt;&lt;b&gt;типовые аналитические вопросы&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="200" x="55" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="kg_passenger" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=12;fontStyle=1;" value="Пассажир" vertex="1">
+          <mxGeometry height="48" width="120" x="350" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="vnvniqjk2vmJDpCk5WQX-1" edge="1" parent="1" source="kg_ticket" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="kg_passenger" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kg_ticket" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=12;fontStyle=1;" value="Билет" vertex="1">
+          <mxGeometry height="48" width="110" x="535" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="kg_cabin" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=12;fontStyle=1;" value="Каюта" vertex="1">
+          <mxGeometry height="48" width="100" x="715" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="kg_survival" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=12;fontStyle=1;" value="Исход&lt;br&gt;выжил/не выжил" vertex="1">
+          <mxGeometry height="55" width="130" x="350" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="kg_class" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=12;fontStyle=1;" value="Класс&lt;br&gt;обслуживания" vertex="1">
+          <mxGeometry height="55" width="130" x="525" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="kg_port" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=12;fontStyle=1;" value="Порт&lt;br&gt;посадки" vertex="1">
+          <mxGeometry height="55" width="110" x="710" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="kg_metric" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=12;fontStyle=1;" value="Аналитическая&lt;br&gt;метрика" vertex="1">
+          <mxGeometry height="55" width="135" x="470" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="kg_table" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=12;" value="Таблица&lt;br&gt;&lt;b&gt;passengers&lt;/b&gt;" vertex="1">
+          <mxGeometry height="45" width="120" x="343" y="478" as="geometry" />
+        </mxCell>
+        <mxCell id="kg_col" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=12;" value="Колонки&lt;br&gt;&lt;b&gt;age, sex, fare...&lt;/b&gt;" vertex="1">
+          <mxGeometry height="45" width="130" x="520" y="478" as="geometry" />
+        </mxCell>
+        <mxCell id="kg_fk" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=12;" value="Связи / ключи&lt;br&gt;&lt;b&gt;ticket_id, cabin_id&lt;/b&gt;" vertex="1">
+          <mxGeometry height="45" width="135" x="713" y="478" as="geometry" />
+        </mxCell>
+        <mxCell id="vec_store" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" value="Векторный индекс&lt;br&gt;&lt;b&gt;названия, описания, термины, примеры SQL&lt;/b&gt;" vertex="1">
+          <mxGeometry height="48" width="260" x="430" y="402" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pass_ticket" edge="1" parent="1" source="kg_passenger" style="endArrow=open;html=1;rounded=0;strokeColor=#9673A6;fontSize=10;" target="kg_ticket" value="имеет">
+          <mxGeometry relative="1" x="0.2308" y="9" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_ticket_cabin" edge="1" parent="1" source="kg_ticket" style="endArrow=open;html=1;rounded=0;strokeColor=#9673A6;fontSize=10;" target="kg_cabin" value="связан с">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pass_survival" edge="1" parent="1" source="kg_passenger" style="endArrow=open;html=1;rounded=0;strokeColor=#9673A6;fontSize=10;" target="kg_survival" value="имеет исход">
+          <mxGeometry relative="1" x="-0.2644" y="-12" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pass_class" edge="1" parent="1" source="kg_passenger" style="endArrow=open;html=1;rounded=0;strokeColor=#9673A6;fontSize=10;" target="kg_class" value="путешествует в">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pass_port" edge="1" parent="1" source="kg_passenger" style="endArrow=open;html=1;rounded=0;strokeColor=#9673A6;fontSize=10;" target="kg_port" value="посадка в">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_surv_metric" edge="1" parent="1" source="kg_survival" style="endArrow=open;html=1;rounded=0;strokeColor=#9673A6;fontSize=10;" target="kg_metric" value="используется в">
+          <mxGeometry relative="1" x="-0.5399" y="10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_class_metric" edge="1" parent="1" source="kg_class" style="endArrow=open;html=1;rounded=0;strokeColor=#9673A6;fontSize=10;" target="kg_metric" value="группировка">
+          <mxGeometry relative="1" x="-0.5746" y="16" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_table_col" edge="1" parent="1" source="kg_table" style="endArrow=open;html=1;rounded=0;strokeColor=#9673A6;fontSize=10;" target="kg_col" value="содержит">
+          <mxGeometry relative="1" x="-0.0526" y="21" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_col_fk" edge="1" parent="1" source="kg_col" style="endArrow=open;html=1;rounded=0;strokeColor=#9673A6;fontSize=10;" target="kg_fk" value="участвует">
+          <mxGeometry relative="1" x="-0.0476" y="20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_col_vec" edge="1" parent="1" source="kg_col" style="endArrow=open;html=1;rounded=0;strokeColor=#9673A6;fontSize=10;" target="vec_store" value="векторизация">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_metric_vec" edge="1" parent="1" source="kg_metric" style="endArrow=open;html=1;rounded=0;strokeColor=#9673A6;fontSize=10;" target="vec_store" value="термины">
+          <mxGeometry relative="1" x="1" y="242" as="geometry">
+            <mxPoint x="7" y="29" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="an_pagerank" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=12;" value="PageRank&lt;br&gt;&lt;b&gt;важные сущности и поля&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="235" x="925" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="an_communities" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=12;" value="Сообщества&lt;br&gt;&lt;b&gt;пассажир / билет / маршрут / исход&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="235" x="925" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="an_paths" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=12;" value="Поиск путей&lt;br&gt;&lt;b&gt;как связать таблицы в SQL&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="235" x="925" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="ag_user" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#E1F5FE;strokeColor=#0288D1;fontSize=12;" value="Пользователь&lt;br&gt;&lt;b&gt;вопрос на естественном языке&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="180" x="1260" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="ag_router" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=12;fontStyle=1;" value="Router-agent&lt;br&gt;&lt;b&gt;определяет тип запроса&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="165" x="1460" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="ag_retriever" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=12;fontStyle=1;" value="GraphRAG Retriever&lt;br&gt;&lt;b&gt;ищет узлы, связи, контекст&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="1260" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="ag_graph" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=12;fontStyle=1;" value="Graph-agent&lt;br&gt;&lt;b&gt;строит маршрут по графу&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="165" x="1460" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="ag_sql" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=12;fontStyle=1;" value="SQL-agent&lt;br&gt;&lt;b&gt;генерирует SQL&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="1260" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="ag_cypher" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=12;fontStyle=1;" value="Cypher-agent&lt;br&gt;&lt;b&gt;запросы к графу знаний&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="165" x="1460" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="ag_grader" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#F8CECC;strokeColor=#B85450;fontSize=12;fontStyle=1;" value="SQL Grader&lt;br&gt;&lt;b&gt;проверяет корректность&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="1260" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="ag_security" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#F8CECC;strokeColor=#B85450;fontSize=12;fontStyle=1;" value="Security Guard&lt;br&gt;&lt;b&gt;права, SELECT-only, LIMIT&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="165" x="1460" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="ag_db" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#E1F5FE;strokeColor=#0288D1;fontSize=12;" value="SQL БД&lt;br&gt;&lt;b&gt;выполнение запроса&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="180" x="1260" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="ag_answer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#E1F5FE;strokeColor=#0288D1;fontSize=12;" value="Ответ пользователю&lt;br&gt;&lt;b&gt;таблица + краткое объяснение&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="165" x="1460" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="ae1" edge="1" parent="1" source="ag_user" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;" target="ag_router" value="">
+          <mxGeometry relative="1" y="43" as="geometry">
+            <mxPoint x="-1" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ae2" edge="1" parent="1" source="ag_router" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;" target="ag_retriever" value="нужен ли SQL">
+          <mxGeometry relative="1" x="0.7971" y="-39" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1360" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ae3" edge="1" parent="1" source="ag_retriever" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;" target="ag_graph" value="контекст">
+          <mxGeometry relative="1" y="40" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ae4" edge="1" parent="1" source="ag_graph" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;" target="ag_sql" value="маршрут таблиц">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ae5" edge="1" parent="1" source="ag_graph" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;" target="ag_cypher" value="метаданные графа">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ae6" edge="1" parent="1" source="ag_sql" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;" target="ag_grader" value="SQL-кандидат">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ae7" edge="1" parent="1" source="ag_grader" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;" target="ag_security" value="проверенный SQL">
+          <mxGeometry relative="1" y="40" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ae8" edge="1" parent="1" source="ag_security" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;" target="ag_db" value="разрешённый запрос">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ae9" edge="1" parent="1" source="ag_db" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;" target="ag_answer" value="результат">
+          <mxGeometry relative="1" y="18" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce_src_kg" edge="1" parent="1" source="src_schema" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;dashed=1;" target="kg_table" value="извлечение метаданных">
+          <mxGeometry relative="1" x="0.168" y="24" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce_comments_vec" edge="1" parent="1" source="src_comments" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;dashed=1;" target="vec_store" value="векторизация описаний">
+          <mxGeometry relative="1" x="-0.5908" y="12" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce_dict_vec" edge="1" parent="1" source="src_dict" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="vec_store" value="векторизация терминов">
+          <mxGeometry relative="1" x="-0.5722" y="17" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="330" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce_examples_vec" edge="1" parent="1" source="src_examples" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;dashed=1;" target="vec_store" value="индексация примеров">
+          <mxGeometry relative="1" x="-0.481" y="28" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="360" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce_kg_an" edge="1" parent="1" source="kg_passenger" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;dashed=1;" target="an_pagerank" value="графовая аналитика">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="130" />
+              <mxPoint x="800" y="130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce_vec_ret" edge="1" parent="1" source="vec_store" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;dashed=1;" target="ag_retriever" value="поиск релевантного контекста">
+          <mxGeometry relative="1" x="-0.0512" y="-19" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1150" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce_path_graph" edge="1" parent="1" source="an_paths" style="endArrow=block;html=1;rounded=0;strokeWidth=2;fontSize=11;dashed=1;" target="ag_graph" value="поиск связей">
+          <mxGeometry relative="1" x="0.1984" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1340" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2e_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#999999;fontSize=12;align=left;spacingLeft=8;" value="&lt;b&gt;Пример вопроса:&lt;/b&gt; «Покажи долю выживших пассажиров по классам обслуживания и полу».&lt;br&gt;&lt;b&gt;1.&lt;/b&gt; Router определяет аналитический SQL-запрос. &lt;b&gt;2.&lt;/b&gt; GraphRAG находит сущности: Пассажир, Исход, Класс, Пол; поля: survived, pclass, sex. &lt;b&gt;3.&lt;/b&gt; Graph-agent проверяет маршрут по графу: passengers → survival/class attributes. &lt;b&gt;4.&lt;/b&gt; SQL-agent формирует агрегирующий SELECT с GROUP BY. &lt;b&gt;5.&lt;/b&gt; Grader и Security Guard проверяют SQL. &lt;b&gt;6.&lt;/b&gt; Пользователь получает таблицу с долей выживших." vertex="1">
+          <mxGeometry height="80" width="1110" x="55" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="sql_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#999999;fontSize=12;align=left;spacingLeft=8;" value="&lt;b&gt;SQL-кандидат:&lt;/b&gt;&lt;br&gt;SELECT pclass, sex, AVG(survived) AS survival_rate&lt;br&gt;FROM passengers&lt;br&gt;GROUP BY pclass, sex&lt;br&gt;ORDER BY pclass, sex;" vertex="1">
+          <mxGeometry height="90" width="1110" x="55" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#E1F5FE;strokeColor=#0288D1;fontSize=12;" value="Голубой — источники данных и SQL БД" vertex="1">
+          <mxGeometry height="40" width="250" x="55" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=12;" value="Оранжевый — метаданные БД" vertex="1">
+          <mxGeometry height="40" width="220" x="615" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=12;fontStyle=1;" value="Фиолетовый — агенты" vertex="1">
+          <mxGeometry height="40" width="180" x="860" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#F8CECC;strokeColor=#B85450;fontSize=12;fontStyle=1;" value="Красный — проверки и ограничения" vertex="1">
+          <mxGeometry height="40" width="230" x="1065" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=12;" value="Зелёный — графовая аналитика" vertex="1">
+          <mxGeometry height="40" width="230" x="1320" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="vnvniqjk2vmJDpCk5WQX-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=light-dark(#fff2cc, #36210a);strokeColor=#D79B00;fontSize=12;" value="&lt;span style=&quot;font-weight: 700;&quot;&gt;Жёлтый — доменные сущности графа знаний&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="220" x="350" y="815" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

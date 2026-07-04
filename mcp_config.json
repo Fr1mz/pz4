@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "titanic-graphrag": {
+      "command": "python",
+      "args": [
+        "server.py"
+      ],
+      "env": {
+        "GRAPH_DB": "neo4j",
+        "DOMAIN": "titanic",
+        "VECTOR_INDEX": "titanic_schema_index",
+        "KNOWLEDGE_GRAPH": "titanic_knowledge_graph"
+      }
+    }
+  }
+}
